@@ -106,17 +106,7 @@ def searchItems():
         for items, values in schedule[lookingFor].items():
             print("     " + CYAN + str(items) + ": " + RESET + str(values))
         print("\n")
-            
-# def continueProgram():   
-#     print("\n------------------------------")
-#     print("| Deseja prosseguir(Y/N):         |")
-#     print("------------------------------\n")
-
-#     step = input(RED + "(Y/N): " + RESET)
-
-#     if step == "Y":
-#         clear()
-#     else:
+        
 
 
 def option():
