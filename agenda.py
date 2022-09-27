@@ -32,12 +32,12 @@ schedule = {
 }
 
 def programOptions():
-    print("\n------------------------------")
-    print("| Digite o que você deseja:  |")
-    print("------------------------------\n")
+    print("\n------------")
+    print("| Agenda:  |")
+    print("------------\n")
 
     print("-----------------------------")
-    print("| - Pesquisar na agenda = " + CYAN + "1" + RESET + " |")
+    print("| - Continuar = " + CYAN + "1" + RESET + "           |")
     print("| - SAIR = " + CYAN + "2" + RESET + "                |")
     print("-----------------------------\n")
 
@@ -45,6 +45,37 @@ def programOptions():
         return True
     else:
         return False
+
+def searchType():
+    print("\n------------------------------")
+    print("| Digite o que você deseja:  |")
+    print("------------------------------\n")
+
+    print("--------------------------------------")
+    print("| - Pesquisar items da agenda = " + CYAN + "1" + RESET + "    |")
+    print("| - Pesquisar palavras na agenda = " + CYAN + "2" + RESET + " |")
+    print("--------------------------------------\n")
+
+    lookingFor = input(RED + "Opção: " + RESET)
+
+    if(lookingFor == "1"):
+        searchItems()
+    elif(lookingFor == "2"):
+        searchWord()
+
+
+def searchWord():
+    lookingFor = input(RED + "Digite qual palavra você deseja pesquisar: " + RESET)
+
+    print("Items da agenda em que aparece o que você pesquisou: \n")
+    for items, values in schedule.items():
+        if lookingFor in items:
+            print(items)
+
+        for keys, value in values.items():
+            if lookingFor in str(value):
+                print(items)
+
 
 def search():
     print("------------------------")
@@ -76,7 +107,18 @@ def searchItems():
             print("     " + CYAN + str(items) + ": " + RESET + str(values))
         print("\n")
             
-    
+# def continueProgram():   
+#     print("\n------------------------------")
+#     print("| Deseja prosseguir(Y/N):         |")
+#     print("------------------------------\n")
+
+#     step = input(RED + "(Y/N): " + RESET)
+
+#     if step == "Y":
+#         clear()
+#     else:
+
+
 def option():
     clear()
 
@@ -85,12 +127,13 @@ def option():
 
     while continueSearch == True:
         clear()
-        searchItems()
+        searchType()
         time.sleep(10)
         clear()
         continueSearch = programOptions()
 
 
 option()
+# searchWord()
 
         
